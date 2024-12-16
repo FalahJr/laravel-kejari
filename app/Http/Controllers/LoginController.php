@@ -26,8 +26,9 @@ class LoginController extends Controller
         ]);
 
         if ($validator->fails()) {
-            $request->session()->flash('failed', 'Lengkapi isian form');
-            return redirect('login');
+            return redirect('login')
+                ->withErrors($validator) // Mengirim error ke view
+                ->withInput(); // Mengirim input yang sudah diisi sebelumnya
         }
 
         // $karyawan = Karyawan::where([

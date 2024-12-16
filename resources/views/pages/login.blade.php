@@ -37,7 +37,22 @@
 
                         <form method="post" action="/login-action" class="needs-validation" novalidate="">
                             @csrf
+                            {{-- Tampilkan pesan kesalahan --}}
+                            @if (session('failed'))
+                                <div class="alert alert-danger">
+                                    {{ session('failed') }}
+                                </div>
+                            @endif
 
+                            @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
                             <div class="form-group">
                                 <label for="email">Email</label>
                                 <input id="email" type="email" class="form-control" name="email" tabindex="1"
