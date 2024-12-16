@@ -8,7 +8,7 @@
     { "src": "/build/(.*)", "dest": "/public/build/$1" },
     { "src": "/(.*)", "dest": "/api/index.php" }
   ],
-  "buildCommand": "",
+  "buildCommand": "docker run --rm -v $(pwd):/app composer:latest composer install --no-dev --optimize-autoloader",
   "outputDirectory": "public",
   "env": {
     "APP_ENV": "production",
