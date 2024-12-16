@@ -17,6 +17,7 @@ class AuthAdmin
     public function handle(Request $request, Closure $next)
     {
         if ($request->session()->get('user')) {
+            dd($request->session()->get('user')['role']);
 
             if ($request->session()->get('user')['role'] == 'Admin') {
                 return $next($request);
