@@ -1,1 +1,10 @@
-/vendor
+node_modules
+vendor
+.env
+.DS_Store
+*.log
+storage/*
+!storage/framework/cache
+!storage/framework/sessions
+!storage/framework/views
+public/storage
