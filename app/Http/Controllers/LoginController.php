@@ -101,7 +101,7 @@ class LoginController extends Controller
             $user['id'] = $user['id'] ?? $user['id_admin'];
             $user['nama'] = $user['nama_lengkap'];
             Session(['user' => $user]);
-            // dd($role);
+            dd($role);
             switch ($role) {
                 case 'Admin':
                     return redirect('admin/home');
